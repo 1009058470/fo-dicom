@@ -9,6 +9,18 @@
 ### License
 This library is licensed under the [Microsoft Public License (MS-PL)](http://opensource.org/licenses/MS-PL). See [License.txt](License.txt) for more information.
 
+### 在使用fo-dicom 库的时候是没用codec的注册的，因此需要先添加fo-dicom.codec的包，并且在头部注册此代码
+```csharp
+static void Main(string[] args)
+    {
+        new DicomSetupBuilder()
+            .RegisterServices(s => s.AddFellowOakDicom().AddTranscoderManager<NativeTranscoderManager>())
+            .Build();
+
+        var dcm = DicomFile.Open(@"D:\0.dcm");
+       // the same as your code above
+    }
+```
 ### 压缩dicom文件的使用
 ```csharp
 using Dicom.Imaging.Codec;
