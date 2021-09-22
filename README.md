@@ -9,6 +9,14 @@
 ### License
 This library is licensed under the [Microsoft Public License (MS-PL)](http://opensource.org/licenses/MS-PL). See [License.txt](License.txt) for more information.
 
+### 压缩dicom文件的使用
+```csharp
+using Dicom.Imaging.Codec;
+
+var original = dicomFile.Dataset;
+var changed = dataset.Clone(DicomTransferSyntax.JPEGProcess14SV1);
+```
+
 ### Features
 * Portable Class Library (PCL)
 * Targets .NET 4.5 and higher, .NET Core (.NET Standard 1.3 and higher), Universal Windows Platform, Xamarin iOS, Xamarin Android, Mono and Unity
